@@ -1,7 +1,4 @@
-# Changelog v2.0
+# Changelog v2.1
 
 ## Additions
-- Added "Nether Wastes"
-
-## Breaking Changes
-- Changed mod id
+- Added "Cat's Sunset"
