@@ -5,7 +5,7 @@
 Nemo's Paintings is a community-driven project.
 It adds a mix of silly and stylish paintings!
 
-For more information and to see how to configure the components check the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-paintings/general).
+For more information and images check the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-paintings/general).
 
 ## Downloads
 
