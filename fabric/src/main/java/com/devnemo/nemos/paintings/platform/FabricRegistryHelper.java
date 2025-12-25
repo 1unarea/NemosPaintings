@@ -8,7 +8,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -68,21 +68,21 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public Supplier<Holder<Attribute>> registerAttribute(String id, Attribute attribute) {
-        var attributeReference = Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, ResourceLocation.fromNamespaceAndPath(MOD_ID, id), attribute);
+        var attributeReference = Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, Identifier.fromNamespaceAndPath(MOD_ID, id), attribute);
 
         return () -> attributeReference;
     }
 
     private static <T, R extends Registry<? super T>> Supplier<T> registerSupplier(R registry, String id, Supplier<T> object) {
-        final var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-        final var registeredObject = Registry.register((Registry<T>) registry, resourceLocation, object.get());
+        final var identifier = Identifier.fromNamespaceAndPath(MOD_ID, id);
+        final var registeredObject = Registry.register((Registry<T>) registry, identifier, object.get());
 
         return () -> registeredObject;
     }
 
     private static <T, R extends Registry<T>> Supplier<T> registerSupplierWithResourceKey(R registry, String id, Function<ResourceKey<T>, T> object) {
-        final var resourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-        final var registeredObject = Registry.register(registry, resourceLocation, object.apply(ResourceKey.create(registry.key(), resourceLocation)));
+        final var identifier = Identifier.fromNamespaceAndPath(MOD_ID, id);
+        final var registeredObject = Registry.register(registry, identifier, object.apply(ResourceKey.create(registry.key(), identifier)));
 
         return () -> registeredObject;
     }
