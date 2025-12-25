@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.devnemo.nemos.paintings.FabricNemosPaintings"
+            "com.nemonotfound.nemos.paintings.FabricNemosPaintings"
         ],
         "fabric-datagen": [
-            "com.devnemo.nemos.paintings.DataGenerator"
+            "com.nemonotfound.nemos.paintings.DataGenerator"
         ]
     },
     "depends": {
